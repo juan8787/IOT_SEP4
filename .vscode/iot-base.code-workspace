@@ -17,6 +17,10 @@
 		"files.exclude": {
 			"test/": true,
 			"target/": true
+		},
+		"files.associations": {
+			"Dockerfile": "bat",
+			"stdio.h": "c"
 		}
 	}
 }
