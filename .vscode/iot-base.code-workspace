@@ -20,7 +20,12 @@
 		},
 		"files.associations": {
 			"Dockerfile": "bat",
-			"stdio.h": "c"
+			"stdio.h": "c",
+			"atmega_freertos.h": "c",
+			"stdint.h": "c",
+			"status_leds.h": "c",
+			"event_groups.h": "c",
+			"hih8120.h": "c"
 		}
 	}
 }

@@ -2,4 +2,8 @@ target_sources(${PROJECT_NAME}
     PUBLIC
     main.c
     LoRaWANHandler.c
+    controllerImp.c
+    sensors/humidityImp.c
+    sensors/temperatureImp.c
+    sensors/co2Imp.c
 )
