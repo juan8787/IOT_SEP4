@@ -25,7 +25,11 @@
 			"stdint.h": "c",
 			"status_leds.h": "c",
 			"event_groups.h": "c",
-			"hih8120.h": "c"
+			"hih8120.h": "c",
+			"stdbool.h": "c",
+			"mh_z19.h": "c",
+			"projdefs.h": "c",
+			"freertosconfig.h": "c"
 		}
 	}
 }

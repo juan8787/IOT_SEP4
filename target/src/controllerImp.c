@@ -8,7 +8,7 @@
 #include "sensors/humidity.h"
 #include "controller.h"
 
-sensors_data_t data;
+sensors_data_t dataC;
 extern EventGroupHandle_t EventGroupHandle;
 #define BIT_0 (1 << 0)
 #define BIT_1 (1 << 1)
@@ -30,7 +30,7 @@ void runEnvironment()
     printf("Environment start to set the data\n");
 
     // Set the data fields from the sensors using pointers
-    sensors_data_t *pData = &data;
+    sensors_data_t *pData = &dataC;
     pData->co2 = getCo2();
     pData->humidity = getHumidity();
     pData->temperature = getTemperature();

@@ -43,11 +43,17 @@ void runHumidity()
     printf("humidity  is set BIT_2!\n");
     vTaskDelay(50);
 }
-
+void humiditySensorInit()
+{
+    if (HIH8120_OK != hih8120_initialise())
+    {
+        printf("Humidity sensor could not initialized");
+    }
+}
 void humidityTask(void *p)
 {
     (void)p;
-    humiditySensor_init();
+    humiditySensorInit();
 
     for (;;)
     {
@@ -60,12 +66,5 @@ uint16_t getHumidity()
     uint16_t *restartHumidity = &humidity;
     uint16_t avgHumidity = humidity;
     *restartHumidity = 0;
-    return avgHumidity / 5;
-}
-void humiditySensorInit()
-{
-    if (HIH8120_OK != hih8120_initialise())
-    {
-        printf("Humidity sensor could not initialized");
-    }
+    return avgHumidity / 10;
 }
