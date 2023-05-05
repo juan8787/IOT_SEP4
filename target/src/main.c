@@ -56,7 +56,6 @@ void initialiseSystem()
 	if (EventGroupHandle == NULL)
 	{
 		printf("Failed to create EventGroup\n");
-		return -1;
 	}
 	// Set output ports for leds used in the example
 	DDRA |= _BV(DDA0) | _BV(DDA7);
