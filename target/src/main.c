@@ -20,7 +20,7 @@
 #include "sensors/temperature.h"
 #include "sensors/co2.h"
 #include "sensors/humidity.h"
-#include "controller.h"
+#include "controllerSend.h"
 #include "task_config.h"
 
 // Needed for LoRaWAN
@@ -43,7 +43,7 @@ void create_tasks(void)
 	xTaskCreate(temperatureTask, "temp_Task", TEMP_TASK_STACK_SIZE, NULL, TEMP_TASK_PRIORITY, NULL);
 	xTaskCreate(co2Task, "co2_Task", CO2_TASK_STACK_SIZE, NULL, CO2_TASK_PRIORITY, NULL);
 	xTaskCreate(humidityTask, "humidity_Task", HUMIDITY_TASK_STACK_SIZE, NULL, HUMIDITY_TASK_PRIORITY, NULL);
-	xTaskCreate(environmentTask, "environment_Task", CONTROLLER_TASK_STACK_SIZE, NULL, CONTROLLER_TASK_PRIORITY, NULL);
+	xTaskCreate(controllerSendTask, "environment_Task", CONTROLLER_TASK_STACK_SIZE, NULL, CONTROLLER_TASK_PRIORITY, NULL);
 }
 
 /*-----------------------------------------------------------*/
@@ -56,7 +56,6 @@ void initialiseSystem()
 	if (EventGroupHandle == NULL)
 	{
 		printf("Failed to create EventGroup\n");
-		return -1;
 	}
 	// Set output ports for leds used in the example
 	DDRA |= _BV(DDA0) | _BV(DDA7);

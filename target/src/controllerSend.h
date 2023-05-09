@@ -8,4 +8,4 @@ typedef struct sensors_data
     uint16_t co2;
 } sensors_data_t;
 
-void environmentTask(void *p);
+void controllerSendTask(void *p);

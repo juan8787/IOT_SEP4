@@ -29,7 +29,8 @@
 			"stdbool.h": "c",
 			"mh_z19.h": "c",
 			"projdefs.h": "c",
-			"freertosconfig.h": "c"
+			"freertosconfig.h": "c",
+			"controllersend.h": "c"
 		}
 	}
 }
