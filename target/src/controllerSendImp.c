@@ -9,7 +9,7 @@
 #include "controllerSend.h"
 
 sensors_data_t dataC;
-extern QueueHandle_t xQueue2;
+QueueHandle_t xQueue2;
 extern EventGroupHandle_t EventGroupHandle;
 #define BIT_0 (1 << 0)
 #define BIT_1 (1 << 1)
@@ -51,6 +51,7 @@ void controllerSendTask(void *p)
 {
 
     (void)p;
+    xQueue2 = xQueueCreate(1, sizeof(dataC));
     for (;;)
     {
         runControllerSend();
