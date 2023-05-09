@@ -7,7 +7,7 @@
 
 extern EventGroupHandle_t EventGroupHandle;
 #define BIT_1 (1 << 1)
-
+// try
 static mh_z19_returnCode_t rc;
 static uint16_t co2 = 0;
 void co2_sensorInit(void);
