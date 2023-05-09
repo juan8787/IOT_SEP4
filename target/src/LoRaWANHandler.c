@@ -8,16 +8,16 @@
 #include <stdio.h>
 
 #include <ATMEGA_FreeRTOS.h>
-
+#include <queue.h>
 #include <lora_driver.h>
 #include <status_leds.h>
 
 #include "event_groups.h"
 
 #include "controllerSend.h"
-
+//
 sensors_data_t data;
-
+extern QueueHandle_t xQueue2;
 // Parameters for OTAA join - You have got these in a mail from IHA
 #define LORA_appEUI "1AB7F2972CC78C9A"
 #define LORA_appKEY "6C7EF7F5BC5266D1FAEE88AF7EA9BABD"
@@ -137,7 +137,7 @@ void lora_handler_task(void *pvParameters)
 	for (;;)
 	{
 		xTaskDelayUntil(&xLastWakeTime, xFrequency);
-
+		xQueueReceive(xQueue2, &data, portMAX_DELAY);
 		// Some dummy payload
 		uint16_t hum = data.humidity;	 // Dummy humidity
 		int16_t temp = data.temperature; // Dummy temp
