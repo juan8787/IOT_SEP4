@@ -6,7 +6,6 @@ on:
   pull_request:
     branches:
       - main
-      - dev
 jobs:
 
   call_chk_devcontainer:
