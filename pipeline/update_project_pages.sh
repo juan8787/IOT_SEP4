@@ -19,12 +19,14 @@ echo "REPO_OWNER = ${REPO_OWNER}"
 echo "REPO_NAME = ${REPO_NAME}"
 echo "PAGES_URL = ${PAGES_URL}"
 
+COMMIT_NAME=$(git log -1 --pretty=format:%s)
+UPDATE_TIME=$(date +"%Y-%m-%d %H:%M:%S")
+README_CONTENT="## Latest Update\n\n- ${COMMIT_NAME} (${UPDATE_TIME})\n\nVisit ${PAGES_URL} to view the project pages."
 if ! grep -q "${PAGES_URL}" README.md || [ ! -f README.md ]; then
     echo "Creating empty README.md file..."
     touch README.md
-    echo "Setting GitHub pages link to ${PAGES_URL} in README.md..."
-    echo "Visit ${PAGES_URL} to view the project pages." > README.md
 fi
+echo "${README_CONTENT}" > README.md
 
 # Update firmware.zip
 rm -f proj_pages/firmware/firmware.zip
